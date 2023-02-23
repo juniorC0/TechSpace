@@ -1,6 +1,6 @@
-﻿namespace TechSpace.Domain
+﻿namespace TechSpace.Application.Dtos
 {
-    public class TypeOfTechnologicalEquipment : BaseEntity
+    public class TypeOfTechnologicalEquipmentDto
     {
         public string Code { get; set; }
         public string Name { get; set; }

@@ -1,4 +1,5 @@
-﻿using TechSpace.Infrastructure.Extensions;
+﻿using TechSpace.Application.Profiles;
+using TechSpace.Infrastructure.Extensions;
 
 namespace TechSpace.API.Extensions
 {
@@ -8,6 +9,7 @@ namespace TechSpace.API.Extensions
         {
             builder.Services.AddInfrastructure(builder.Configuration);
             builder.Services.AddControllers();
+            builder.Services.AddAutoMapper(typeof(EquipmentPlacementContractProfile));
         }
     }
 }
