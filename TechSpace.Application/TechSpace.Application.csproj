@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <Folder Include="Common\" />
-    <Folder Include="EquipmentPlacementContracts\Queries\" />
   </ItemGroup>
 
 </Project>

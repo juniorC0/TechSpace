@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TechSpace.Application.Dtos;
 using TechSpace.Application.EquipmentPlacementContracts.Commands;
+using TechSpace.Application.EquipmentPlacementContracts.Queries;
 using TechSpace.Application.Interfaces;
 using TechSpace.Domain;
 
@@ -24,6 +25,13 @@ namespace TechSpace.API.Controllers
             _mediator = mediator;
         }
 
+        [HttpGet]
+        public async Task<IEnumerable<GetAllEquipmentPlacementContractsQuery>> GetAllEquipmentPlacementContracts()
+        {
+            var allEquipmentPlacementContracts = await _mediator.Send(new GetAllEquipmentPlacementContractsQuery());
+            return allEquipmentPlacementContracts;
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateEquipmentPlacementContract(CreateEquipmentPlacementContractCommand request)
         {
@@ -42,12 +50,5 @@ namespace TechSpace.API.Controllers
             }
 
         }
-
-        //[HttpGet]
-        //public IActionResult<IEnumerable<EquipmentPlacementContractDto>> GetContracts()
-        //{
-        //    var contracts = _repository.
-        //    return Ok();
-        //}
     }
 }
