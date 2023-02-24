@@ -9,6 +9,7 @@ namespace TechSpace.Application.Profiles
         public ProductionPremiseProfile()
         {
             CreateMap<ProductionPremiseDto, ProductionPremise>();
+            CreateMap<ProductionPremise, ProductionPremiseDto>();
         }
     }
 }

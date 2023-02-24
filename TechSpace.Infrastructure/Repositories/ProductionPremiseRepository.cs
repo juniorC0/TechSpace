@@ -8,10 +8,13 @@ namespace TechSpace.Infrastructure.Repositories
     public class ProductionPremiseRepository : EntityRepository<ProductionPremise>, IProductionPremiseRepository
     {
         private readonly TechSpaceDbContext _dbContext;
+
+
         public ProductionPremiseRepository(TechSpaceDbContext dbContext) : base(dbContext)
         {
             _dbContext = dbContext;
         }
+
 
         public async Task<ProductionPremise> GetByCodeAsync(string code)
         {

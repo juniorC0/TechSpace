@@ -6,6 +6,10 @@ namespace TechSpace.Infrastructure
 {
     public class TechSpaceDbContext : DbContext
     {
+        public TechSpaceDbContext()
+        {
+
+        }
         public TechSpaceDbContext(DbContextOptions<TechSpaceDbContext> options) : base(options)
         {
             Database.EnsureCreated();

@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
 using TechSpace.Application.Dtos;
+using TechSpace.Application.EquipmentPlacementContracts.Commands;
 using TechSpace.Application.Interfaces;
 using TechSpace.Domain;
 
 namespace TechSpace.Application.Resolvers
 {
-    public class TypeOfTechnologicalEquipmentResolver : IValueResolver<EquipmentPlacementContractDto, 
-        EquipmentPlacementContract, TypeOfTechnologicalEquipment>
+    public class TypeOfTechnologicalEquipmentResolver : IValueResolver<CreateEquipmentPlacementContractCommand,
+       EquipmentPlacementContractDto, TypeOfTechnologicalEquipment>
     {
         private readonly ITypeOfTechnologicalEquipmentRepository _typeOfTechnologicalEquipmentRepository;
 
@@ -15,8 +16,8 @@ namespace TechSpace.Application.Resolvers
             _typeOfTechnologicalEquipmentRepository = typeOfTechnologicalEquipmentRepository;
         }
 
-        public TypeOfTechnologicalEquipment Resolve(EquipmentPlacementContractDto source, 
-            EquipmentPlacementContract destination, TypeOfTechnologicalEquipment destMember, 
+        public TypeOfTechnologicalEquipment Resolve(CreateEquipmentPlacementContractCommand source,
+            EquipmentPlacementContractDto destination, TypeOfTechnologicalEquipment destMember,
             ResolutionContext context)
         {
             if (string.IsNullOrEmpty(source.TypeOfTechnologicalEquipmentCode))
@@ -35,5 +36,4 @@ namespace TechSpace.Application.Resolvers
             return typeOfTechnologicalEquipment;
         }
     }
-
 }

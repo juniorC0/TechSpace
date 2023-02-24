@@ -1,13 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using TechSpace.Domain;
 
 namespace TechSpace.Application.Dtos
 {
     public class EquipmentPlacementContractDto
     {
         [Required]
-        public string ProductionPremiseCode { get; set; }
+        public ProductionPremise ProductionPremise { get; set; }
         [Required]
-        public string TypeOfTechnologicalEquipmentCode { get; set; }
+        public TypeOfTechnologicalEquipment TypeOfTechnologicalEquipment { get; set; }
 
         public int NumberOfEquipmentUnits { get; set; }
     }

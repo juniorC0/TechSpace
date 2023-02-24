@@ -20,6 +20,7 @@ namespace TechSpace.Infrastructure.Extensions
             services.AddScoped(typeof(IEntityRepository<>), typeof(EntityRepository<>));
             services.AddScoped<IProductionPremiseRepository, ProductionPremiseRepository>();
             services.AddScoped<ITypeOfTechnologicalEquipmentRepository, TypeOfTechnologicalEquipmentRepository>();
+            services.AddScoped<IEquipmentPlacementContractRepository, EquipmentPlacementContractRepository>();
 
             return services;
         }

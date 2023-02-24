@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TechSpace.Application.Dtos;
+using TechSpace.Application.EquipmentPlacementContracts.Commands;
 using TechSpace.Application.Interfaces;
 using TechSpace.Domain;
 
@@ -12,22 +14,22 @@ namespace TechSpace.API.Controllers
     {
         private readonly IEntityRepository<EquipmentPlacementContract> _repository;
         private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
 
         public EquipmentPlacementContractController(IEntityRepository<EquipmentPlacementContract> repository, 
-            IMapper mapper)
+            IMapper mapper, IMediator mediator)
         {
             _repository = repository;
             _mapper = mapper;
+            _mediator = mediator;
         }
 
         [HttpPost]
-        public IActionResult CreateEquipmentPlacementContract([FromBody] EquipmentPlacementContractDto dto)
+        public async Task<IActionResult> CreateEquipmentPlacementContract(CreateEquipmentPlacementContractCommand request)
         {
             try
             {
-                var contract = _mapper.Map<EquipmentPlacementContract>(dto);
-                _repository.AddAsync(contract);
-                _repository.SaveChangesAsync();
+                await _mediator.Send(request);
                 return Ok();
             }
             catch (AutoMapperMappingException e)
@@ -40,5 +42,12 @@ namespace TechSpace.API.Controllers
             }
 
         }
+
+        //[HttpGet]
+        //public IActionResult<IEnumerable<EquipmentPlacementContractDto>> GetContracts()
+        //{
+        //    var contracts = _repository.
+        //    return Ok();
+        //}
     }
 }
