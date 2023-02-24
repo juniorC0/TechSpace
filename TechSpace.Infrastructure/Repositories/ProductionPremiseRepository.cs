@@ -20,7 +20,7 @@ namespace TechSpace.Infrastructure.Repositories
 
             if (productionPremice is null)
             {
-                throw new Exception("Can`t find this entity in DB");
+                throw new NullReferenceException("Can`t find this entity in DB");
             }
 
             return productionPremice;

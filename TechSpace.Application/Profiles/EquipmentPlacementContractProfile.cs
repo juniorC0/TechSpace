@@ -12,7 +12,6 @@ namespace TechSpace.Application.Profiles
             CreateMap<EquipmentPlacementContractDto, EquipmentPlacementContract>()
                 .ForMember(dest => dest.ProductionPremise, opt => opt.MapFrom<ProductionPremiseResolver>())
                 .ForMember(dest => dest.TypeOfTechnologicalEquipment, opt => opt.MapFrom<TypeOfTechnologicalEquipmentResolver>());
-
         }
     } 
 }

@@ -26,7 +26,7 @@ namespace TechSpace.Infrastructure.Repository
 
             if (entity is null)
             {
-                throw new Exception("Can`t find this element in db");
+                throw new NullReferenceException("Can`t find this element in db");
             }
             
             _dbContext.Set<T>().Remove(entity);

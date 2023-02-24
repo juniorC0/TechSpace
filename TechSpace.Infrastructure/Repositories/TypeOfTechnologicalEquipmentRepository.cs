@@ -24,7 +24,7 @@ namespace TechSpace.Infrastructure.Repositories
 
             if (typeOfTechnologicalEquipment is null)
             {
-                throw new Exception("Can`t find this element is DB");
+                throw new NullReferenceException("Can`t find this element in DB");
             }
 
             return typeOfTechnologicalEquipment;

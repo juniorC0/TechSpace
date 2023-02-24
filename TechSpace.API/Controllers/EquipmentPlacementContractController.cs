@@ -30,11 +30,11 @@ namespace TechSpace.API.Controllers
                 _repository.SaveChangesAsync();
                 return Ok();
             }
-            catch (ArgumentException e)
+            catch (AutoMapperMappingException e)
             {
                 return BadRequest(e.Message);
             }
-            catch (InvalidOperationException e)
+            catch (Exception e)
             {
                 return StatusCode(500, e.Message);
             }

@@ -1,4 +1,6 @@
-﻿namespace TechSpace.Domain
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TechSpace.Domain
 {
     public class EquipmentPlacementContract : BaseEntity
     {

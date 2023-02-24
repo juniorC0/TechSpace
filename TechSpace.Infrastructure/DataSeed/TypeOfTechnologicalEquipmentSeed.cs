@@ -12,21 +12,21 @@ namespace TechSpace.Infrastructure.DataSeed
                 {
                     Code = "TTE1",
                     Name = "Type of Technological Equipment 1",
-                    Area = 500
+                    AreaOccupiedByEquipment = 500
                 };
 
                 var secondTypeOfTechnologicalEquipment = new TypeOfTechnologicalEquipment
                 {
                     Code = "TTE2",
                     Name = "Type of Technological Equipment 2",
-                    Area = 1000
+                    AreaOccupiedByEquipment = 1000
                 };
 
                 var thirdTypeOfTechnologicalEquipment = new TypeOfTechnologicalEquipment
                 {
                     Code = "TTE3",
                     Name = "Type of Technological Equipment 3",
-                    Area = 750
+                    AreaOccupiedByEquipment = 750
                 };
 
 
