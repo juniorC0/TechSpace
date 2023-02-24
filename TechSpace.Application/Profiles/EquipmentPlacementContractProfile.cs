@@ -15,6 +15,7 @@ namespace TechSpace.Application.Profiles
                 .ForMember(dest => dest.TypeOfTechnologicalEquipment, opt => opt.MapFrom<TypeOfTechnologicalEquipmentResolver>());
 
             CreateMap<EquipmentPlacementContractDto, EquipmentPlacementContract>();
+            CreateMap<EquipmentPlacementContract, EquipmentPlacementContractDto>();
         }
     } 
 }

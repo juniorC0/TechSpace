@@ -27,5 +27,49 @@ namespace TechSpace.Infrastructure.Repositories
                     NumberOfEquipmentUnits = x.NumberOfEquipmentUnits
                 }).ToListAsync();
         }
+
+        public new async Task AddAsync(EquipmentPlacementContract contract)
+        {
+            var isEnoughSpace = await IsEnoughSpaceInPremise(contract);
+
+            if (isEnoughSpace)
+            {
+                await _dbContext.EquipmentPlacementContracts.AddAsync(contract);
+            }
+            else
+            {
+                throw new Exception("Not enough space for new equipment");
+            }
+        }
+
+        private async Task<bool> IsEnoughSpaceInPremise(EquipmentPlacementContract contract)
+        {
+            int occupiedArea = 0;
+
+            var lazyLoadedContracts = await _dbContext.EquipmentPlacementContracts
+                .Include(x => x.ProductionPremise.EquipmentPlacementContracts)
+                .Include(x => x.TypeOfTechnologicalEquipment.EquipmentPlacementContracts)
+                .Where(x => x.ProductionPremise.Code == contract.ProductionPremise.Code)
+                .ToListAsync();
+
+            if (lazyLoadedContracts.Count > 0)
+            {
+                foreach (var item in lazyLoadedContracts)
+                {
+                    occupiedArea = item.ProductionPremise.EquipmentPlacementContracts
+                    .Where(x => x.ProductionPremise.Code == contract.ProductionPremise.Code)
+                    .Sum(x => x.NumberOfEquipmentUnits * x.TypeOfTechnologicalEquipment.AreaOccupiedByEquipment);
+                }
+            }
+
+            var requiredArea = contract.NumberOfEquipmentUnits * contract.TypeOfTechnologicalEquipment.AreaOccupiedByEquipment;
+
+            if (contract.ProductionPremise.AvailableEquipmentPlacementArea < occupiedArea + requiredArea)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

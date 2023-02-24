@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using TechSpace.Application.Dtos;
 using TechSpace.Application.EquipmentPlacementContracts.Commands;
 using TechSpace.Application.EquipmentPlacementContracts.Queries;
 using TechSpace.Application.Interfaces;
