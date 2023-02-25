@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechSpace.API", "TechSpace.API\TechSpace.API.csproj", "{5E3FE376-903E-4399-80A1-A23E347036AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechSpace.API", "TechSpace.API\TechSpace.API.csproj", "{5E3FE376-903E-4399-80A1-A23E347036AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechSpace.Application", "TechSpace.Application\TechSpace.Application.csproj", "{D9B23E90-A557-497E-8FCA-E0E0F8BBADEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechSpace.Application", "TechSpace.Application\TechSpace.Application.csproj", "{D9B23E90-A557-497E-8FCA-E0E0F8BBADEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechSpace.Domain", "TechSpace.Domain\TechSpace.Domain.csproj", "{ED83D04F-E6F5-4637-8F9A-3DE1CBFEF825}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechSpace.Domain", "TechSpace.Domain\TechSpace.Domain.csproj", "{ED83D04F-E6F5-4637-8F9A-3DE1CBFEF825}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechSpace.Infrastructure", "TechSpace.Infrastructure\TechSpace.Infrastructure.csproj", "{3E3993FA-8431-41D5-A2BD-531558DFFE6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechSpace.Infrastructure", "TechSpace.Infrastructure\TechSpace.Infrastructure.csproj", "{3E3993FA-8431-41D5-A2BD-531558DFFE6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechSpace.Tests", "TechSpace.Tests\TechSpace.Tests.csproj", "{7128D9B4-69BC-4B8D-B4E5-6B48CDE30566}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3E3993FA-8431-41D5-A2BD-531558DFFE6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E3993FA-8431-41D5-A2BD-531558DFFE6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E3993FA-8431-41D5-A2BD-531558DFFE6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7128D9B4-69BC-4B8D-B4E5-6B48CDE30566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7128D9B4-69BC-4B8D-B4E5-6B48CDE30566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7128D9B4-69BC-4B8D-B4E5-6B48CDE30566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7128D9B4-69BC-4B8D-B4E5-6B48CDE30566}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

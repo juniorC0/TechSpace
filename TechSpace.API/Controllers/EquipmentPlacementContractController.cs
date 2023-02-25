@@ -31,12 +31,6 @@ namespace TechSpace.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateEquipmentPlacementContract(CreateEquipmentPlacementContractCommand request)
         {
-            var apiKey = Request.Headers["ApiKey"];
-            if (!AddApiKey(apiKey))
-            {
-                return Unauthorized();
-            }
-
             try
             {
                 await _mediator.Send(request);
@@ -50,19 +44,6 @@ namespace TechSpace.API.Controllers
             {
                 return StatusCode(500, e.Message);
             }
-
-        }
-
-        private bool AddApiKey(string apiKey)
-        {
-            var configuredApiKey = _configuration.GetValue<string>("ApiKey");
-
-            if (apiKey != configuredApiKey)
-            {
-                return false;
-            }
-
-            return true;
         }
     }
 }
