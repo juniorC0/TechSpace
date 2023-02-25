@@ -10,10 +10,12 @@ namespace TechSpace.Infrastructure.Repositories
     {
         private readonly TechSpaceDbContext _dbContext;
 
+
         public EquipmentPlacementContractRepository(TechSpaceDbContext dbContext) : base(dbContext)
         {
             _dbContext = dbContext;
         }
+
 
         public new async Task<IEnumerable<EquipmentPlacementContract>> GetAllAsync()
         {
@@ -32,6 +34,11 @@ namespace TechSpace.Infrastructure.Repositories
         {
             var isEnoughSpace = await IsEnoughSpaceInPremise(contract);
 
+            if (contract.NumberOfEquipmentUnits == 0)
+            {
+                throw new Exception("You must specify the number of equipment units to be placed");
+            }
+
             if (isEnoughSpace)
             {
                 await _dbContext.EquipmentPlacementContracts.AddAsync(contract);
@@ -46,15 +53,15 @@ namespace TechSpace.Infrastructure.Repositories
         {
             int occupiedArea = 0;
 
-            var lazyLoadedContracts = await _dbContext.EquipmentPlacementContracts
+            var eagerLoadedContracts = await _dbContext.EquipmentPlacementContracts
                 .Include(x => x.ProductionPremise.EquipmentPlacementContracts)
                 .Include(x => x.TypeOfTechnologicalEquipment.EquipmentPlacementContracts)
                 .Where(x => x.ProductionPremise.Code == contract.ProductionPremise.Code)
                 .ToListAsync();
 
-            if (lazyLoadedContracts.Count > 0)
+            if (eagerLoadedContracts.Count > 0)
             {
-                foreach (var item in lazyLoadedContracts)
+                foreach (var item in eagerLoadedContracts)
                 {
                     occupiedArea = item.ProductionPremise.EquipmentPlacementContracts
                     .Where(x => x.ProductionPremise.Code == contract.ProductionPremise.Code)

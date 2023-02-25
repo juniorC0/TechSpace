@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using System.Runtime.CompilerServices;
 using TechSpace.Application.Interfaces;
 
 namespace TechSpace.Application.EquipmentPlacementContracts.Queries
@@ -25,6 +24,7 @@ namespace TechSpace.Application.EquipmentPlacementContracts.Queries
             _repository = repository;
             _mapper = mapper;
         }
+
 
         public async Task<IEnumerable<GetAllEquipmentPlacementContractsQuery>> Handle(GetAllEquipmentPlacementContractsQuery request, CancellationToken cancellationToken)
         {

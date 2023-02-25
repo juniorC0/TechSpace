@@ -13,7 +13,7 @@ namespace TechSpace.Application.EquipmentPlacementContracts.Commands
         public string ProductionPremiseCode { get; set; }
         [Required]
         public string TypeOfTechnologicalEquipmentCode { get; set; }
-
+        [Required]
         public int NumberOfEquipmentUnits { get; set; }
     }
 

@@ -9,10 +9,12 @@ public class ProductionPremiseResolver : IValueResolver<CreateEquipmentPlacement
 {
     private readonly IProductionPremiseRepository _productionPremiseRepository;
 
+
     public ProductionPremiseResolver(IProductionPremiseRepository productionPremiseRepository)
     {
         _productionPremiseRepository = productionPremiseRepository;
     }
+
 
     public ProductionPremise Resolve(CreateEquipmentPlacementContractCommand source, EquipmentPlacementContractDto destination,
         ProductionPremise destMember, ResolutionContext context)

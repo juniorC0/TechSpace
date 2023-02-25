@@ -11,10 +11,12 @@ namespace TechSpace.Application.Resolvers
     {
         private readonly ITypeOfTechnologicalEquipmentRepository _typeOfTechnologicalEquipmentRepository;
 
+
         public TypeOfTechnologicalEquipmentResolver(ITypeOfTechnologicalEquipmentRepository typeOfTechnologicalEquipmentRepository)
         {
             _typeOfTechnologicalEquipmentRepository = typeOfTechnologicalEquipmentRepository;
         }
+
 
         public TypeOfTechnologicalEquipment Resolve(CreateEquipmentPlacementContractCommand source,
             EquipmentPlacementContractDto destination, TypeOfTechnologicalEquipment destMember,
