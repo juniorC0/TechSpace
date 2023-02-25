@@ -19,14 +19,14 @@ namespace TechSpace.Infrastructure.DataSeed
                 {
                     Code = "TTE2",
                     Name = "Type of Technological Equipment 2",
-                    AreaOccupiedByEquipment = 100
+                    AreaOccupiedByEquipment = 30
                 };
 
                 var thirdTypeOfTechnologicalEquipment = new TypeOfTechnologicalEquipment
                 {
                     Code = "TTE3",
                     Name = "Type of Technological Equipment 3",
-                    AreaOccupiedByEquipment = 75
+                    AreaOccupiedByEquipment = 25
                 };
 
 
